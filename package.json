@@ -12,6 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "adm-zip": "^0.4.16",
-    "xml2json-light": "^1.0.6"
+    "xml-js": "^1.6.11"
   }
 }

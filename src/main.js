@@ -1,4 +1,4 @@
-var parser = require("xml2json-light")
+var parser = require("xml-js")
 var admzip = require("adm-zip")
 var fs = require("fs")
 
@@ -295,9 +295,12 @@ docx.prototype.parseXML = function(data) {
 docx.prototype.init = function(){
     var self = this;
     this.getContent(function(data){
-        //console.log(parser.toJson(data));
+        // console.log(parser.xml2json(data));
+        var xmlresult = parser.xml2json(data, {compact: true, spaces: 4})
         var result = self.parseXML(data);
-        fs.writeFile('./.tmp/result.json',result, function(err){
+        // var result = parser.xml2json(data); 
+
+        fs.writeFile('./.tmp/result.json',xmlresult, function(err){
             if(err) throw err;
             console.log("saved");
         });
